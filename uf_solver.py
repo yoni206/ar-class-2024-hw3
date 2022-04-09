@@ -25,10 +25,13 @@ def main():
   with open(path, "r") as f:
     smtlib = f.read()
   
-  # parse the smtlib file
+  # parse the smtlib file and get a formula
   parser = SmtLibParser()
   script = parser.get_script(cStringIO(smtlib))
   formula = script.get_last_formula()
+
+  # we are assuming `formula` is a flat cube.
+  # `cube` represents `formula` as a list of literals
   cube = formula.args()
 
   # check if sat or unsat and print result
