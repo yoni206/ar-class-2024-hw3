@@ -10,7 +10,8 @@ Of course, using helper functions for modularity is recommended.
 it only verifies that the formula is indeed a flat cube, and then returns True.
 
 Notice that `uf_solver.py` imports utility functions from `utils.py`. 
-Feel free to use the them.
+Feel free to use the them, as well as any other function from `utils.py`.
+Functions from `pysmt` are also imported, feel free to use them as well as any other function from `pysmt`.
 
 ### How to Run?
 This is how your implementation should be called:
