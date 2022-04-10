@@ -48,15 +48,18 @@ def get_function_symbols(cube):
   function_symbols_getter.walk(formula)
   return function_symbols_getter.funs
 
+# check if `cube` is indeed a cube (that is, a list of literals)
 def is_cube(cube):
   for lit in cube:
     if not is_lit(lit):
       return False
   return True
 
+# check if `term` is a literal (equality or negation of equality)
 def is_lit(term):
   return term.is_equals() or (term.is_not() and term.args()[0].is_equals())
 
+# check if `lit` is a flat literal
 def is_flat_lit(lit):
   assert is_lit(lit)
   if lit.is_equals():
@@ -78,6 +81,7 @@ def is_flat_lit(lit):
     right = eq.args()[1]
     return left.is_symbol() and right.is_symbol()
 
+# check if `cube` is a flat cube
 def is_flat_cube(cube):
   if not is_cube(cube):
     return False
