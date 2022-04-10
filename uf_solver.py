@@ -12,6 +12,7 @@ from six.moves import cStringIO
 from pysmt.shortcuts import Not, Equals, Function
 
 # solver for flat cubes
+# we represent a cube as a list of literals
 # returns True if flat_cube is satisfiable. 
 # Otherwise, returns False
 def flat_cube_uf_solver(flat_cube):
