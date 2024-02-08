@@ -1,4 +1,4 @@
-# HW 2
+# HW 3
 The tasks for this HW are found in hw3.pdf.
 
 ## Details about Question 1
