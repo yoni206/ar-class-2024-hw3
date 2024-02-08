@@ -46,7 +46,7 @@ The result should be:
 unsat
 ----
 <lit1>
-<lit22>
+<lit2>
 ...
 ```
 
