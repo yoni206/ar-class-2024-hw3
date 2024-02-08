@@ -22,7 +22,7 @@ For example, if the input formula is `x=y/\z=w/\f(x)!=f(y)`,
 then depending on the derivation that you found,
 it could be that you never relied on `z=w`. In that case,
 print only the first and last literals.
-If your derivation happened to use z=w (e.g. for a redundant TOP-LEVEL application), then it will also be included in the output.
+If your derivation happened to use `z=w` (e.g. for a redundant TOP-LEVEL application), then it will also be included in the output.
 
 You should aim that for at least some inputs, the output is
 a strict subset of the input.
