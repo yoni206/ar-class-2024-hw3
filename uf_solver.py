@@ -2,7 +2,7 @@
 import sys
 
 # import utility functions
-from utils import get_terms, is_flat_cube, get_function_symbols
+from utils import get_terms, get_function_symbols
 
 # import classses for parsing smt2 files
 from pysmt.smtlib.parser import SmtLibParser
@@ -11,13 +11,21 @@ from six.moves import cStringIO
 # import pysmt functions for creating formulas and terms
 from pysmt.shortcuts import Not, Equals, Function
 
-# solver for flat cubes
+# solver for uninterpreted functions
 # we represent a cube as a list of literals
-# returns True if flat_cube is satisfiable. 
-# Otherwise, returns False
-def flat_cube_uf_solver(flat_cube):
-  assert is_flat_cube(flat_cube)
-  return True
+# returns two elements `b,c`:
+# if `cube` is satisfiable, `b` is `True` and `c` is `None`.
+# otherwise, `b` is `False` and `c` is a sub-list of
+# `cube` such that `c` is already unsatisfiable.
+# `c` consists of the literals that were used
+# in the derivation.
+# In some cases, `c` will be simply the same as `cube`.
+# But in various cases, the derivation did not
+# rely on all literals of `cube`, and in such cases,
+# only those literals that were relied on would be a 
+# part of `c`.
+def uf_solver(cube):
+  return True, None
 
 # main function
 def main():
@@ -36,8 +44,13 @@ def main():
   cube = formula.args()
 
   # check if sat or unsat and print result
-  sat = flat_cube_uf_solver(cube)
-  print("sat" if sat else "unsat")
+  sat, core = uf_solver(cube)
+  if sat:
+    print("sat")
+  else:
+    print("unsat")
+    print("-----")
+    print("\n".join([str(x) for x in core]))
 
 if __name__ == "__main__":
     main()

@@ -4,14 +4,29 @@ The tasks for this HW are found in hw2.pdf.
 ## Details about Question 1
 ### How to Implement?
 The solver should be implemented in `uf_solver.py`. 
-The main functionality should be implemented in `flat_cube_uf_solver`.
+The main functionality should be implemented in `uf_solver`.
 Of course, using helper functions for modularity is recommended.
-`flat_cube_uf_solver` is currently a dummy implementation: 
-it only verifies that the formula is indeed a flat cube, and then returns True.
 
 Notice that `uf_solver.py` imports utility functions from `utils.py`. 
 Feel free to use the them, as well as any other function from `utils.py`.
 Functions from `pysmt` are also imported, feel free to use them as well as any other function from `pysmt`.
+
+### The Expected Output
+If the formula is sat, just print `sat` to the screen.
+Otherwise, print `unsat`, following by a separating line `----`,
+and then print the list of literals that were actually
+used to find out that the formula is unsatisfiable -- each
+literal in a separate line (the file `uf_solver.py`
+already has code to do this printing).
+For example, if the input formula is `x=y/\z=w/\f(x)!=f(y)`,
+then depending on the derivation that you found,
+it could be that you never relied on `z=w`. In that case,
+print only the first and last literals.
+If your derivation happened to use z=w (e.g. for a redundant TOP-LEVEL application), then it will also be included in the output.
+
+You should aim that for at least some inputs, the output is
+a strict subset of the input.
+
 
 ### How to Run?
 This is how your implementation should be called:
