@@ -8,7 +8,7 @@ The main functionality should be implemented in `uf_solver`.
 Of course, using helper functions for modularity is recommended.
 
 Notice that `uf_solver.py` imports utility functions from `utils.py`. 
-Feel free to use the them, as well as any other function from `utils.py`.
+Feel free to use them, as well as any other function from `utils.py`.
 Functions from `pysmt` are also imported, feel free to use them as well as any other function from `pysmt`.
 
 ### The Expected Output
