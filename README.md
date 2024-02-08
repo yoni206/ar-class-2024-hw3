@@ -40,7 +40,19 @@ For example,
 ```
 python3 uf_solver.py benchmarks/uf1.smt2
 ```
-The result should be `unsat`.
+The result should be: 
+
+```
+unsat
+----
+<lit1>
+<lit22>
+...
+```
+
+For this  example, the list can include the first, second and last three literals in the input formula, as they are sufficient for unsatisfiability. But it is ok if the output includes more literals from the input.
+
+```
 
 No other output is allowed, as the implementation will be tested using scripts.
 
