@@ -24,7 +24,7 @@ it could be that you never relied on `z=w`. In that case,
 print only the first and last literals.
 If your derivation happened to use `z=w` (e.g. for a redundant TOP-LEVEL application), then it will also be included in the output.
 
-You should aim that for at least some inputs, the output is
+You should aim that for at least some inputs, the list in the output is
 a strict subset of the input.
 
 
